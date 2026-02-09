@@ -29,6 +29,13 @@
 #     print("**********---------teardown---------***************")
 #     driver.quit
 
+import os
+import sys
+
+# ---------------- project root fix ----------------
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, PROJECT_ROOT)
+
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
@@ -47,13 +54,13 @@ def pytest_addoption(parser):
         "--browser",
         action="store",
         default=Config.BROWSER,
-        help="Browser: chrome"
+        help="Browser name (default: chrome)"
     )
     parser.addoption(
         "--headless",
         action="store_true",
-        default=False,
-        help="Run in headless mode (for Jenkins)"
+        default=Config.HEADLESS,
+        help="Run tests in headless mode"
     )
 
 
