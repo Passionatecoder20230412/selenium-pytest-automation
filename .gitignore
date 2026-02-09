@@ -4,3 +4,7 @@ __pycache__/
 .pytest_cache/
 reports/
 screenshots/
+data.txt
+files.txt
+files_hand.py
+
